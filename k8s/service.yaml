@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pulsebed-service
+  namespace: production
+  labels:
+    app: pulsebed-engine
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 3003
+      protocol: TCP
+      name: http
+  selector:
+    app: pulsebed-engine
